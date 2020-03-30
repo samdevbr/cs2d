@@ -1,0 +1,13 @@
+version: "3.1"
+
+services:
+  server:
+    build:
+      context: .
+    env_file: .env
+    restart: always
+    ports:
+      - ${SERVER_PORT}:36963/udp
+    volumes:
+      - ./server:/cs2d
+      - ./luajit:/root/rocks
